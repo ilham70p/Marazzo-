@@ -1,0 +1,16 @@
+﻿@model Brand
+@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-area="admin" asp-controller="Brand" asp-action="create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.ImageFile">Banner image</label>
+        <input class="form-control" asp-for="@Model.ImageFile">
+        <label asp-for="@Model.Name">Brand Name</label>
+        <input class="form-control" asp-for="@Model.Name">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

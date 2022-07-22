@@ -1,0 +1,27 @@
+﻿@model Advertisement
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-area="admin" asp-controller="Advertisement" asp-action="Update" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <img src="~/Uploads/@Model.Image" alt="Alternate Text" width="100px" />
+        <label asp-for="@Model.ImageFile">Blog image</label>
+        <input class="form-control" asp-for="@Model.ImageFile">
+        <label asp-for="@Model.Title">Blog title</label>
+        <input class="form-control" asp-for="@Model.Title">
+        <label asp-for="@Model.Description">Blog content</label>
+        <textarea class="form-control" asp-for="@Model.Description"></textarea>
+        <input asp-for="@Model.Id" hidden />
+        <input asp-for="@Model.Image" hidden />
+        <select class="form-control" asp-for="@Model.CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id","Name"))">
+            <option selected>Choose category</option>
+        </select>
+        <input asp-for="@Model.CategoryId" hidden />
+
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

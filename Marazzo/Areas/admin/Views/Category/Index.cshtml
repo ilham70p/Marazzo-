@@ -1,0 +1,31 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col"><a asp-area="admin" asp-controller="Category" asp-action="create" class="btn btn-primary">Create</a></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td><a asp-controller="Category" asp-area="admin" asp-action="update" asp-route-id="@item.Id" type="button" class="btn btn-success">Update</a></td>
+            <td><a asp-controller="Category" asp-area="admin" asp-action="delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure?')" type="button" class="btn btn-danger">Delete</a></td>
+        </tr>
+
+        }
+
+    </tbody>
+</table>
+
+

@@ -1,0 +1,22 @@
+﻿@model Advertisement
+@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-area="admin" asp-controller="Advertisement" asp-action="create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.ImageFile">Blog image</label>
+        <input class="form-control" asp-for="@Model.ImageFile">
+        <label asp-for="@Model.Title">Blog title</label>
+        <input class="form-control" asp-for="@Model.Title">
+        <label asp-for="@Model.Description">Blog content</label>
+        <textarea class="form-control" asp-for="@Model.Description"></textarea>
+        <select class="form-control" asp-for="@Model.CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id","Name"))">
+            <option selected>Choose category</option>
+
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

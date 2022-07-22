@@ -1,0 +1,19 @@
+﻿@model PayMethod
+@{
+
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update</h1>
+<form asp-area="admin" asp-controller="Payment" asp-action="Update" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <img src="~/Uploads/@Model.Image" alt="Alternate Text" width="100px" />
+        <label asp-for="@Model.ImageFile">Blog image</label>
+        <input class="form-control" asp-for="@Model.ImageFile">
+        <input asp-for="@Model.Id" hidden />
+        <input asp-for="@Model.Image" hidden />
+        
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

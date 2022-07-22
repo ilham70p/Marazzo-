@@ -1,0 +1,14 @@
+﻿@model List<Social>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="col-xs-12 col-sm-4 no-padding social">
+    <ul class="link">
+        @foreach (var item in Model)
+        {
+            <li class="fb pull-left"><img src="~/Uploads/@item.Image" alt="Alternate Text" style="max-width:50px" /> </li>
+        }
+
+    </ul>
+</div>

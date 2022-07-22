@@ -1,0 +1,19 @@
+﻿@model Setting
+@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-area="admin" asp-controller="Setting" asp-action="update" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+
+        <label asp-for="@Model.Text">Title</label>
+        <input class="form-control" asp-for="@Model.Text">
+        <label asp-for="@Model.Icon">Setting icon</label>
+        <input class="form-control" asp-for="@Model.Icon">
+        <input hidden class="form-control" asp-for="@Model.Id">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

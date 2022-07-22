@@ -1,0 +1,13 @@
+﻿@model PayMethod
+@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-area="admin" asp-controller="Payment" asp-action="create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.ImageFile">Banner image</label>
+        <input class="form-control" asp-for="@Model.ImageFile">
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

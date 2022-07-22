@@ -1,0 +1,23 @@
+﻿@model Banner
+@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-area="admin" asp-controller="Banner" asp-action="Update" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <img src="~/Uploads/@Model.Image" alt="Alternate Text" width="100px" />
+        <label asp-for="@Model.ImageFile">Blog image</label>
+        <input class="form-control" asp-for="@Model.ImageFile">
+        <label asp-for="@Model.Title">Blog title</label>
+        <input class="form-control" asp-for="@Model.Title">
+        <label asp-for="@Model.Name">Blog title</label>
+        <input class="form-control" asp-for="@Model.Name">
+        <label asp-for="@Model.Description">Description</label>
+        <input class="form-control" asp-for="@Model.Description">
+        <input asp-for="@Model.Id" hidden />
+        <input asp-for="@Model.Image" hidden />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+

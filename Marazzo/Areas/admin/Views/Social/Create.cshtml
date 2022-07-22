@@ -1,0 +1,17 @@
+﻿@model Social 
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-area="admin" asp-controller="Social" asp-action="create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.ImageFile">Banner image</label>
+        <input class="form-control" asp-for="@Model.ImageFile">
+        <label asp-for="@Model.Link">Link</label>
+        <input class="form-control" asp-for="@Model.Link">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

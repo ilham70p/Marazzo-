@@ -1,0 +1,14 @@
+﻿@model List<PayMethod>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="clearfix payment-methods">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><img src="~/Uploads/@item.Image" alt=""></li>
+
+        }
+       
+    </ul>
+</div>

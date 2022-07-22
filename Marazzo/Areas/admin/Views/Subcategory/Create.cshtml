@@ -1,0 +1,19 @@
+﻿@model Subcategory
+
+
+    <form asp-area="admin" asp-controller="Subcategory" asp-action="create" method="post">
+        <div class="form-group">
+            <label asp-for="@Model.Name">Subcategory Name</label>
+            <input class="form-control" asp-for="@Model.Name">
+            <label>Choose Category</label>
+
+            <select class="form-control" asp-for="@Model.CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id","Name"))">
+                <option selected>Open this select menu</option>
+
+            </select>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+

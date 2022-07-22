@@ -1,0 +1,33 @@
+﻿@model List<Social>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-area="admin" asp-controller="Social" asp-action="create" class="btn btn-primary">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Image</th>
+            <th scope="col">Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Id</td>
+                <td><img src="~/Uploads/@item.Image" alt="Alternate Text" style="max-width:100px; max-height:100px" /></td>
+                <td>@item.Link</td>
+
+                <td><a asp-controller="Social" asp-area="admin" asp-action="update" asp-route-id="@item.Id" type="button" class="btn btn-success">Update</a></td>
+                <td><a asp-controller="Social" asp-area="admin" asp-action="delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure?')" type="button" class="btn btn-danger">Delete</a></td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>

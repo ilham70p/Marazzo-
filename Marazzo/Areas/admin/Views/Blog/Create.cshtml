@@ -1,0 +1,21 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-area="admin" asp-controller="Blog" asp-action="create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.ImageFile">Blog image</label>
+        <input class="form-control" asp-for="@Model.ImageFile">
+        <label asp-for="@Model.Title">Blog title</label>
+        <input class="form-control" asp-for="@Model.Title">
+        <label asp-for="@Model.Content">Blog content</label>
+        <textarea class="form-control" asp-for="@Model.Content"></textarea>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+

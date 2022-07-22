@@ -1,0 +1,24 @@
+﻿@model Spec
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-area="admin" asp-controller="Speciality" asp-action="update" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.SpecName">Speciality Name</label>
+        <input class="form-control" asp-for="@Model.SpecName">
+
+        <label asp-for="@Model.SubcategoryId">Choose SubCategory</label>
+
+        <select class="form-control" asp-for="@Model.SubcategoryId" asp-items="@(new SelectList(ViewBag.Subcategories, "Id","Name"))">
+            <option selected>Open this select menu</option>
+
+        </select>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <input asp-for="@Model.Id" hidden />
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+

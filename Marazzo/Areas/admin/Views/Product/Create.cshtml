@@ -1,0 +1,60 @@
+﻿@model Product
+@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+<form asp-area="admin" asp-controller="Product" asp-action="create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+
+        <label asp-for="@Model.Name">Name</label>
+        <input class="form-control" asp-for="@Model.Name">
+        <label asp-for="@Model.Price">Price</label>
+        <input class="form-control" asp-for="@Model.Price">
+        <select class="form-control" asp-for="@Model.BrandId" asp-items="@(new SelectList(ViewBag.Brands, "Id","Name"))">
+            <option selected>Choose brand</option>
+        </select>
+        <select id="categoryId" class="form-control" asp-for="@Model.CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id","Name"))">
+            <option selected>Choose category</option>
+        </select>
+        <select id="subcategoryId" class="form-control" asp-for="@Model.SubcategoryId" asp-items="@(new SelectList(string.Empty, "Id","Name"))">
+            <option selected>Choose subcategory</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Next</button>
+</form>
+<script src="~/Areas/admin/js/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        GetSubcategory();
+    })
+    $("#categoryId").change(function () {
+
+        GetSubcategory();
+
+    });
+    var GetSubcategory = function () {
+        $.ajax({
+            url: '@Url.Action("GetSubcategory","Product")',
+            type: 'Get',
+            data: {
+                categoryId: $('#categoryId').val(),
+            },
+            success: function (data) {
+
+                $('#subcategoryId').find('option').remove()
+                $(data).each(
+                    function (index, item) {
+                        $('#subcategoryId').append('<option value="' + item.id + '">' + item.name + '</option>')
+                    }
+                );
+            },
+            error: function () { }
+
+
+
+        });
+
+    }
+
+</script>
+

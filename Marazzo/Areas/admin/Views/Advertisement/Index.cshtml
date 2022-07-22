@@ -1,0 +1,37 @@
+﻿@model List<Advertisement>
+@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<a asp-area="admin" asp-controller="Advertisement" asp-action="create" class="btn btn-primary">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Subcategory</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>@item.Id</td>
+            <td><img src="~/Uploads/@item.Image" alt="Alternate Text" style="max-width:150px; max-height:150px" /></td>
+            <td>@item.Title</td>
+            <td>@(item.Description.Length>150? item.Description.Substring(0,150):item.Description)</td>
+            <td>@item.Category.Name</td>
+            <td><a asp-controller="Advertisement" asp-area="admin" asp-action="update" asp-route-id="@item.Id" type="button" class="btn btn-success">Update</a></td>
+            <td><a asp-controller="Advertisement" asp-area="admin" asp-action="delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure?')" type="button" class="btn btn-danger">Delete</a></td>
+        </tr>
+
+        }
+
+    </tbody>
+</table>
